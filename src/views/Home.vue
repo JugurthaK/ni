@@ -1,16 +1,32 @@
 <template>
-  <v-app>
-    <FileUploader />
-  </v-app>
+  <v-container>
+    <TextField />
+
+    <v-row>
+      <v-col cols="12"></v-col>
+      <WeatherCard />
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import FileUploader from '@/components/FileUploader.vue'
+import { mapState } from 'vuex'
+import TextField from '@/components/TextField.vue'
+import WeatherCard from '@/components/WeatherCard.vue'
 export default {
-  name: 'Home',
+  data() {
+    return {}
+  },
   components: {
-    FileUploader
-  }
+    TextField,
+    WeatherCard
+  },
+  computed: {
+    ...mapState(['coords'])
+  },
+
+  methods: {}
 }
 </script>
+
+<style lang="scss" scoped></style>
